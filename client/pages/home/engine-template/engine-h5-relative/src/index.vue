@@ -5,6 +5,7 @@
              :key="i"
              :style="getCommonStyle(page.commonStyle)"> -->
         <div class="relative"
+              style='width:100%;overflow-y: hidden'
              :style="getCommonStyle(page.commonStyle)">
             <!--页面内容区域-->
             <div class="quark-page-wrapper"
@@ -23,7 +24,7 @@
 <script>
 import editorProjectConfig from '@client/pages/editor/DataModel'
 import componentsTemplate from '../../components/components-template'
-import $config from '@client/config'
+// import $config from '@client/config'
 import elementEvents from '@client/mixins/elementEvents'
 export default {
     name: 'engineH5Long',

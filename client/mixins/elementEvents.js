@@ -32,7 +32,8 @@ export default {
 		_event_submitForm(eventData, element, page){
 			return new Promise((resolve) => {
 				// 获取提交接口
-				let apiUrl = eventData.url;
+                // let apiUrl = eventData.url;
+                
 				// 获取页面表单数据
                 let formdata ={}
                 console.log(page)

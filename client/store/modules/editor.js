@@ -151,14 +151,13 @@ const actions = {
    * @param data
    */
   addElement({ commit }, elData) {
-    console.log(elData)
     let activePage = getters.activePage(state)
     let data = editorProjectConfig.getElementConfig(
       elData,
       { zIndex: activePage.elements.length + 1 },
       state.projectData.scale
     )
-    commit('addElement', data)
+    commit('addElement', {elData: data, uuid: null})
     commit('setActiveElementUUID', data.uuid)
     commit('addHistoryCache')
   },
@@ -223,12 +222,11 @@ const actions = {
   },
   copyElement({ state, commit }, elData) {
     let copyOrignData = elData ? elData : getters.activeElement(state)
-    let activePage = getters.activePage(state)
 
     let data = editorProjectConfig.copyElement(copyOrignData, {
-      zIndex: activePage.elements.length + 1,
+      zIndex: Number(copyOrignData.commonStyle.zIndex) + 1,
     })
-    commit('addElement', data)
+    commit('addElement', {elData: data, uuid: copyOrignData.uuid})
     commit('setActiveElementUUID', data.uuid)
     commit('addHistoryCache')
   },
@@ -366,11 +364,15 @@ const mutations = {
    * @param state
    * @param elData
    */
-  addElement(state, elData) {
+  addElement(state, {elData, uuid}) {
     let index = state.projectData.pages.findIndex((v) => {
       return v.uuid === state.activePageUUID
     })
-    state.projectData.pages[index].elements.push(elData)
+    let list = uuid ? getParentById(state.projectData.pages[index].elements, uuid) : state.projectData.pages[index].elements
+    list.push(elData)
+    list.sort((a, b)=>{
+        return b.commonStyle.zIndex - a.commonStyle.zIndex 
+    })
   },
   /**
    * 拖拽更改位置
