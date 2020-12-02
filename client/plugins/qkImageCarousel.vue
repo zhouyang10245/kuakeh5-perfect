@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.qk-image-carsousel{
+    width: 100%;
+    height: 100%;
+}
 .image-carsousel-swiper,
 /deep/.el-carousel__container,
 /deep/.el-carousel__item,

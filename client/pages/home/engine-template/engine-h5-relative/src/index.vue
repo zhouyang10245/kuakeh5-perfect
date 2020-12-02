@@ -5,7 +5,7 @@
              :key="i"
              :style="getCommonStyle(page.commonStyle)"> -->
         <div class="relative"
-              style='width:100%;overflow-y: hidden'
+              style='width:100%;overflow-x: hidden'
              :style="getCommonStyle(page.commonStyle)">
             <!--页面内容区域-->
             <div class="quark-page-wrapper"

@@ -25,5 +25,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+.qk-text{
+    height: 100%;
+}
 </style>

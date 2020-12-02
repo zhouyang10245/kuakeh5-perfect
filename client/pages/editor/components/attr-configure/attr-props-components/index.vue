@@ -34,6 +34,7 @@ export default {
    * 当前选中元素需要编辑得props 列表
          */
         currentElementProps () {
+            console.log(this.activeElement)
             if (!this.activeElement.propsValue) {
                 return []
             }

@@ -97,10 +97,12 @@ let getElementConfig = function(element, extendStyle = {}, scale = 1) {
     ...elementConfigData,
     elName: elementData.elName,
     propsValue: deepClone(elementData.needProps || {}),
-    children: elementData.children ?  elementData.children.map(ele=>{
-        return getElementConfig(ele)
-    })  : [], // 如果为组，子组件
-    isGroup: elementData.isGroup || false //是否为组
+    children: elementData.children
+      ? elementData.children.map((ele) => {
+          return getElementConfig(ele)
+        })
+      : [], // 如果为组，子组件
+    isGroup: elementData.isGroup || false, //是否为组
   }
 
   // 样式
@@ -114,7 +116,15 @@ let getElementConfig = function(element, extendStyle = {}, scale = 1) {
 }
 let copyElement = function(element, extendStyle = {}) {
   element = cloneDeep(element)
+  console.log(element)
   element.uuid = createUUID()
+  if (element.children.length>0) {
+    element.children = element.children.map((ele) => {
+        let item = cloneDeep(ele)
+        item.uuid = createUUID()
+        return item
+    })
+  }
   element.commonStyle = merge(element.commonStyle, extendStyle)
   // 加上一点偏移量，以作区分
   element.commonStyle.top = element.commonStyle.top + 10

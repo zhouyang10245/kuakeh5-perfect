@@ -46,6 +46,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.qk-input{
+    height: 100%;
+}
 .qk-input-item {
     display: block;
     width: 100%;
