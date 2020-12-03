@@ -215,6 +215,16 @@ export default [
 				}
             },
             {
+				elName: 'qk-courses',
+				title: '课程',
+				icon: 'el-icon-set-up',
+				valueType: '',
+				defaultStyle: {
+					height: 363,
+                    width:1200
+				}
+            },
+            {
 				elName: 'course',
 				title: '自定义课程',
 				icon: 'el-icon-set-up',
