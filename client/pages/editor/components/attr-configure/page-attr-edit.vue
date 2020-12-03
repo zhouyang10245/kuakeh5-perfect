@@ -79,12 +79,16 @@ export default {
                     label: '默认'
                 },
                 {
-                    value: 'light',
-                    label: '浅色'
+                    value: 'red',
+                    label: '红色'
                 },
                 {
-                    value: 'dark',
-                    label: '深色'
+                    value: 'blue',
+                    label: '蓝色'
+                },
+                {
+                    value: 'yellow',
+                    label: '黄色'
                 }
             ]
         }

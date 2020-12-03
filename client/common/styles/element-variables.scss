@@ -9,7 +9,7 @@ $--font-path: '~element-ui/lib/theme-chalk/fonts';
 
 // 主题切换
 $themes: (
-  light: (
+  red: (
     //字体
     font_color1: #414141,
     font_color2: white,
@@ -21,7 +21,7 @@ $themes: (
     //边框
       border_color1: #3d414a,
   ),
-  dark: (
+  blue: (
     //字体
       font_color1: #a7a7a7,
     font_color2: white,
@@ -33,6 +33,18 @@ $themes: (
     //边框
       border_color1: #3d414a,
   ),
+  yellow: (
+    //字体
+      font_color1: #a7a7a7,
+    font_color2: white,
+    //背景
+      background_color1: #1b2531,
+    background_color2: #283142,
+    background_color3: #E6A23C,
+    background_color4: #1e6ceb,
+    //边框
+      border_color1: #3d414a,
+  )
 );
 @mixin themeify {
     @each $theme-name, $theme-map in $themes {

@@ -4,9 +4,9 @@
       <el-menu default-active="/page-list" router>
         <el-menu-item index="/page-list">
           <i class="el-icon-mobile"></i>
-          <span slot="title">我的作品</span>
+          <span slot="title">我的模板</span>
         </el-menu-item>
-        <el-menu-item index="/my-template">
+        <!-- <el-menu-item index="/my-template">
           <i class="el-icon-document"></i>
           <span slot="title">我的模板</span>
         </el-menu-item>
@@ -17,7 +17,7 @@
         <el-menu-item index="/template-list">
           <i class="el-icon-s-shop"></i>
           <span slot="title">创意模板</span>
-        </el-menu-item>
+        </el-menu-item> -->
       </el-menu>
     </div>
     <div class="clearfix my-page-list">
