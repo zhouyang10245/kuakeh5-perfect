@@ -53,12 +53,14 @@ export default {
     border-radius: 200px;
     overflow: hidden;
     background: #fff;
+    height: 100%;
     input {
         height: 100%;
         outline: none;
         border: none;
         flex: 8;
         padding: 0 20px;
+        background: transparent;
     }
     div{
         flex: 2;

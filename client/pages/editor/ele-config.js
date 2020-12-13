@@ -210,17 +210,27 @@ export default [
 				icon: 'el-icon-news',
 				valueType: '',
 				defaultStyle: {
-					height: 45,
-                    width: 350
+					height: 210,
+                    width: 600
 				}
-			},
+            },
+            {
+				elName: 'qk-courses',
+				title: '课程',
+				icon: 'el-icon-set-up',
+				valueType: '',
+				defaultStyle: {
+					height: 363,
+                    width:1200
+				}
+            },
             {
 				elName: 'course',
-				title: '课程',
+				title: '自定义课程',
 				icon: 'el-icon-set-up',
                 isGroup: true,
 				defaultStyle: {
-					height: 250,
+					height: 340,
                     width: 375
                 },
                 children:[
@@ -240,9 +250,51 @@ export default [
                         defaultStyle: {
                             height: 40,
                             top: 230,
+                            textAlign: 'left',
+                            fontSize: 18,
+                            lineHeight: 2.4,
+                            fontWeight: 'bold'
+                        }
+                    },
+                    {
+                        elName: 'qk-text',
+                        title: '文字',
+                        // 每个组件设置props来展示哪些显示哪些编辑项
+                        valueType: '', // 标识数据类型，用于表单组件
+                        defaultStyle: {
+                            height: 40,
+                            width: 150,
+                            top: 270,
+                            lineHeight: 2.4,
                             textAlign: 'left'
                         }
-                    }
+                    },
+                    {
+                        elName: 'qk-text',
+                        title: '文字',
+                        // 每个组件设置props来展示哪些显示哪些编辑项
+                        valueType: '', // 标识数据类型，用于表单组件
+                        defaultStyle: {
+                            height: 40,
+                            width: 225,
+                            left: 250,
+                            top: 270,
+                            lineHeight: 2.4,
+                            textAlign: 'right'
+                        }
+                    },
+                    {
+                        elName: 'qk-text',
+                        title: '文字',
+                        // 每个组件设置props来展示哪些显示哪些编辑项
+                        valueType: '', // 标识数据类型，用于表单组件
+                        defaultStyle: {
+                            height: 40,
+                            top: 310,
+                            textAlign: 'left',
+                            lineHeight: 2.4
+                        }
+                    },
                 ]
 			}
         ]

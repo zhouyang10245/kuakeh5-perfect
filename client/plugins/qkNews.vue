@@ -21,7 +21,27 @@ export default {
                 return [
                     {
                         url: '/',
-                        title: '新闻',
+                        title: '新闻1',
+                        time: '2020-10-01'
+                    },
+                    {
+                        url: '/',
+                        title: '新闻2',
+                        time: '2020-10-01'
+                    },
+                    {
+                        url: '/',
+                        title: '新闻3',
+                        time: '2020-10-01'
+                    },
+                    {
+                        url: '/',
+                        title: '新闻4',
+                        time: '2020-10-01'
+                    },
+                    {
+                        url: '/',
+                        title: '新闻5',
                         time: '2020-10-01'
                     }
                 ]
@@ -41,6 +61,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     li {
         cursor: pointer;
         width: 100%;

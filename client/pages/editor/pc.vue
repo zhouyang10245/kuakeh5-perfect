@@ -75,13 +75,6 @@
                 </el-tab-pane>
             </el-tabs>
         </div>
-        <!--预览-->
-        <previewPage v-if="showPreview"
-                     :pageData="projectData"
-                     :pageId="id"
-                     @closePreview="showPreview = false"
-                     @publishFn="publishFn"
-                     @saveFn="saveFn"></previewPage>
         <!--我的图片-->
         <imageLibs />
     </div>
@@ -119,14 +112,12 @@ export default {
         pageAttrEdit,
         scriptEdit,
         controlBar,
-        previewPage,
         elementManage
     },
     data () {
         return {
             id: '', // 当前页面id
             loading: false,
-            showPreview: false,
             activeAttr: '属性',
             activeSideBar: 'componentLibs',
             sidebarMenus: [
@@ -156,7 +147,7 @@ export default {
             },
             dragging: null,
             percentage: 60,
-            customColor: '#409eff',
+            customColor: '#409eff'
         }
     },
     computed: {
@@ -176,6 +167,10 @@ export default {
         this.projectData.width = 1960
         this.projectData.height = 1960
         // this.initPageData();
+        if (this.$route.query.id) {
+            this.$store.dispatch('setPrjectDataByid', this.$route.query.id - 1)
+        }
+
     },
     methods: {
         // 设置拖拽信息
@@ -216,15 +211,15 @@ export default {
             // 提交数据再预览
             this.$axios.post('/page/publish/' + this.id, this.projectData).then(() => {
                 this.$message.success('发布成功!')
-                this.showPreview = false
                 this.$router.push({ path: 'page-list', query: { previewId: this.id } })
             })
         },
         async showPreviewFn () {
             // await this.screenshots()
             // 提交数据再预览
-            this.$axios.post('/page/update/' + this.id, this.projectData).then(() => {
-                this.showPreview = true
+            localStorage.setItem('data', JSON.stringify(this.projectData))
+            this.$router.push({
+                path: '/preview/0'
             })
         },
         /**

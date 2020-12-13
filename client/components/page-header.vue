@@ -2,7 +2,7 @@
   <div class="components-page-header">
     <div class="logo-wrapper cursor-pointer" @click="$router.push('/')">
       <img src="../common/images/logo.png" alt="">
-      <span>夸克H5</span>
+      <span></span>
     </div>
     <slot></slot>
     <div class="pull-right">

@@ -138,7 +138,7 @@ export default {
         document.onkeydown = function (e) {
             let key = e.keyCode
             if (key == 46) {
-                self.handleElementCommand("delete")
+                self.$store.dispatch('elementCommand', "delete")
             }
 
         }
@@ -147,7 +147,12 @@ export default {
 
     },
     methods: {
-        
+         /**
+         * 对元素进行操作命令
+         */
+        handleElementCommand (command) {
+            this.$store.dispatch('elementCommand', command)
+        },
         handleClickCanvas (e) {
             if (!e.target.classList.contains('element-on-edit-pane') && !e.target.classList.contains('menu-item-on-edit-panel')) {
                 this.$store.dispatch('setActiveElementUUID', '');
@@ -244,6 +249,11 @@ export default {
             let y = e.clientY - el.y
             this.$set(this.$parent.dragging.defaultStyle, 'left', x)
             this.$set(this.$parent.dragging.defaultStyle, 'top', y)
+            if (this.$parent.dragging.children) {
+                this.$parent.dragging.children.forEach(element => {
+                    element.needProps = this.getComponentProps(element.elName)
+                });
+            }
             this.$store.dispatch('addElement', { ...this.$parent.dragging, needProps: props })
         },
         /**

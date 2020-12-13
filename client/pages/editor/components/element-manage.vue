@@ -6,6 +6,7 @@
             <el-tree :data="elemets"
                      node-key="uuid"
                      default-expand-all
+                     ref='elements'
                      draggable
                      @node-drag-start="handleDragStart"
                      @node-drag-end="handleDragEnd"
@@ -84,6 +85,11 @@ export default {
             return data.elements.sort((a, b) => {
                 return b.commonStyle.zIndex - a.commonStyle.zIndex
             })
+        }
+    },
+    watch: {
+        activeElementUUID () {
+            this.$refs.elements.setCurrentKey(this.activeElementUUID)
         }
     },
     methods: {
